@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <title>Ingenuity.Digital</title>
+
+
+
+    <style>
+        /* BASIC - CSS START */
+        :root {
+            --color-light: #e5e5e5;
+            --color-yellow: #ffc600;
+            --color-accent: #19c8fa;
+            --color-dark: #0c0a09;
+            --transparent-cover: rgba(12, 10, 9, 0.90);
+        }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;  
+        }
+        html {
+            font-size: 18px;
+            color: var(--color-light); 
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul, li {
+            list-style: none;
+        }
+        /* BASIC - CSS END */
+
+
+        /* HEADER - CSS START */
+        .header {
+            position: relative;
+            width: 100%;
+            border-bottom: 1px solid var(--color-light);
+            background: var(--transparent-cover);
+            z-index: 999;
+        }
+        .container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .nav_menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-light);
+            transition: 0.3ms ease-in-out;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        .logo:hover {
+            color: var(--color-yellow);
+        }
+        .nav_toggle {
+            display: none;
+            grid-column: -1;
+        }
+        .open_menu,
+        .close_menu {
+            display: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--color-light);
+        }
+        .nav_links {
+            grid-column: -1;
+        }
+        .nav_links_items {
+            display: inline-block;
+            /* padding-right: 0; */
+        }
+        .nav_links_items a {
+            position: relative;
+            font-size: 1.25rem;
+            color: var(--color-light);
+            transition: 0.3ms ease-in-out;
+            padding: 1.25rem;
+        }
+        .nav_links_items a:hover {
+            color: var(--color-yellow);
+        }
+        /* HEADER - CSS END */
+
+
+
+        /* SUBSCRIBE - CSS START */
+        .subscribe {
+            display: grid;
+            place-items: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            background: url('https://images.unsplash.com/photo-1689443111223-fdba9d92dbd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTE2OTAxMjB8&ixlib=rb-4.0.3&q=85') no-repeat center/cover;
+            color: var(--color-light);
+        }
+        .subscribe_content {
+            display: grid;
+            justify-items: center;
+            gap: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+        .subscribe_title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-light);
+            position: relative;
+        }
+        .subscribe_title::before {
+            position: absolute;
+            content: '';
+            background: var(--color-light);
+            width: 60px;
+            height: 1px;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .subscribe_description {
+            font-size: 1rem;
+            line-height: 1.3;
+            color: var(--color-light);
+        }
+        .subscribe_form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            max-width: 350px;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--color-light);
+        }
+        .subscribe_input {
+            padding: 0.625rem 1rem;
+            background: transparent;
+            border: none;
+            color: var(--color-light);
+            text-align: center;
+        }
+        .subscribe_button {
+            padding: 0.625rem 1.25rem;
+            background: var(--color-accent);
+            border: none;
+            color: var(--color-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .subscribe_button:hover {
+            background: var(--color-dark);
+        }
+        input::placeholder {
+            opacity: 0.85;
+        }
+        input:focus::placeholder {
+            opacity: 0.75;
+            color: var(--color-light);
+        }
+        input:focus,
+        button:focus {
+            outline: none;
+        }
+        /* SUBSCRIBE - CSS END */
+
+
+
+        @media screen and (max-width: 768px) {
+            .nav_links {
+                display: none;
+            }
+            .nav_toggle {
+                display: grid;
+            }
+            .open_menu {
+                display: grid;
+            }
+            .close_menu {
+                display: none;
+            }
+            .nav_toggle.active .open_menu {
+                display: none;
+            }
+            .nav_toggle.active .close_menu {
+                display: grid;
+            }
+            .nav_links.active {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-column: 1 / 4;
+                text-align: center;
+                max-height: 0;
+                transition: all ease-in-out 0.3ms;
+            }
+            .nav_links_items {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                background: var(--transparent-cover);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav_menu">
+                <a class="logo" href="#">INGENUITY</a>
+                <div class="nav_toggle">
+                    <span class="material-symbols-outlined open_menu">menu</span>
+                    <span class="material-symbols-outlined close_menu">close</span>
+                </div>
+                <ul class="nav_links">
+                    <li class="nav_links_items"><a href="#Home">Home</a></li>
+                    <li class="nav_links_items"><a href="#Services">Services</a></li>
+                    <li class="nav_links_items"><a href="#Contact">Contact</a></li>
+                    <li class="nav_links_items"><a href="#Blogs">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+
+    <section class="subscribe">
+        <div class="subscribe_content container">
+            <h2 class="subscribe_title">Subscribe</h2>
+            <p class="subscribe_description">
+                Start Your Transformation Journey with <br> <strong>Ingenuity.Digital</strong>
+            </p>
+            <form class="subscribe_form" action="#">
+                <input class="subscribe_input" type="email" name="email" placeholder="Your Email" required>
+            </form>
+            <button type="submit" class="subscribe_button">Subscribe</button>
+        </div>
+    </section>
+
+
+
+
+
+    <script>
+        const nav_toggle = document.querySelector('.nav_toggle');
+        const nav_links = document.querySelector(".nav_links");
+
+        nav_toggle.addEventListener("click", () => {
+            nav_toggle.classList.toggle("active");
+            nav_links.classList.toggle("active");
+        })
+
+        document.querySelectorAll(".nav_links").forEach(n => n.addEventListener("click", () => {
+            nav_toggle.classList.remove("active");
+            nav_links.classList.remove("active");
+        }))
+    </script>
+</body>
+</html>
