@@ -89,7 +89,6 @@
         }
         .nav_links_items {
             display: inline-block;
-            /* padding-right: 0; */
         }
         .nav_links_items a {
             position: relative;
@@ -183,8 +182,62 @@
             outline: none;
         }
         /* SUBSCRIBE - CSS END */
-
-
+        
+        .home_page_section {
+            /* height: 100vh; */
+            height: calc(100vh - 2.5rem);
+            background:
+            linear-gradient(var(--transparent-cover), var(--transparent-cover)),
+            url('https://images.unsplash.com/photo-1689443111223-fdba9d92dbd7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTE2OTAxMjB8&ixlib=rb-4.0.3&q=85')
+            center/cover no-repeat;
+        }
+        .home_page_section_container {
+            display: grid;
+            grid-template-columns: minmax(300px, 600px) 1fr;
+            align-items: center;
+            height: 100%;
+        }
+        .home_page_section_content {
+            display: grid;
+            grid-column: 1;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .home_page_section_content::before {
+            content: '';
+            position: absolute;
+            top: -4rem;
+            bottom: -4rem;
+            left: -100vw;
+            right: 0;
+            background: var(--text-bg);
+             z-index: -1;
+        }
+        .title {
+            font-weight: 600;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            position: relative;
+        }
+        .desc {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            letter-spacing: 1px;
+        }
+        .cta-button {
+            justify-self: start;
+            padding: 0.75rem 2rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 500;
+            background: var(--color-light);
+            color: var(--color-dark);
+            border-radius: 50px;
+            display: inline-block;
+            transition: 0.3ms ease-in-out;
+        }
+        .cta-button:hover {
+            background: var(--color-yellow);
+        }
 
         @media screen and (max-width: 768px) {
             .nav_links {
@@ -218,6 +271,21 @@
                 padding-bottom: 1rem;
                 background: var(--transparent-cover);
             }
+            .home_page_section_container {
+                grid-template-columns: 1fr;
+                grid-column: 1 / 4;
+            }
+            .home_page_section_content {
+                justify-items: center;
+                text-align: center;
+            }
+            .home_page_section_content::before {
+                left: 0;
+                width: 100%;
+            }
+            .cta-button {
+                justify-self: center;
+            }
         }
     </style>
 </head>
@@ -240,8 +308,16 @@
         </div>
     </header>
 
-
-
+    <section class="home_page_section">
+        <div class="home_page_section_container container">
+            <div class="home_page_section_content">
+                <h1 class="title">Welcome to<br/><span>Ingenuity.Digital</span></h1>
+                <p class="desc">We turn ideas into digital reality.</p>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+    
     <section class="subscribe">
         <div class="subscribe_content container">
             <h2 class="subscribe_title">Subscribe</h2>
